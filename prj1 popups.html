@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="K Harika - Full Stack Developer Associate in Backend and database Management">
+<title>K Harika | Developer Portfolio</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0b18;--card:#17172c;--text:#fff;--muted:#b3b3c9;
+  --purple:#a56aff;--blue:#4285ff;--border:#343451;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+p{color:var(--muted);line-height:1.7}
+.navbar{background:#101020;border-bottom:1px solid var(--border)}
+.navbar-brand{color:var(--purple)!important;font-weight:bold;font-size:24px}
+.nav-link{color:white!important}
+.nav-link:hover{color:var(--purple)!important}
+.gradient{
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+  -webkit-background-clip:text;color:transparent;
+}
+.hero{
+  min-height:90vh;display:flex;align-items:center;
+  background:radial-gradient(circle at 80% 40%,#29205b,transparent 42%)
+}
+.section{padding:85px 0}
+.section-title{text-align:center;font-weight:bold;margin-bottom:45px}
+.profile{
+  width:270px;height:270px;object-fit:cover;border-radius:50%;
+  border:5px solid var(--purple);box-shadow:0 0 35px #965aff55
+}
+.custom-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:17px;padding:25px;height:100%;transition:.3s;
+  display:flex;flex-direction:column;position:relative;
+}
+.custom-card:hover{transform:translateY(-6px);border-color:var(--purple)}
+
+/* CERTIFICATE MEDIA STYLING */
+.cert-media-box{
+  width:100%;height:190px;border-radius:10px;
+  border:1px solid var(--border);margin-bottom:16px;background:#14142b;
+  overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;
+}
+.cert-img-element{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.cert-pdf-element{
+  width:100%;height:100%;border:none;
+}
+
+.btn-main{
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+  color:white;border:0;border-radius:30px;padding:11px 24px
+}
+.btn-main:hover{color:white;opacity:.85}
+.btn-outline-light{border-radius:25px}
+.progress{height:9px;background:#34344d}
+.progress-bar{background:linear-gradient(90deg,var(--purple),var(--blue))}
+.skill-row{margin-bottom:23px}
+.timeline{border-left:2px solid var(--purple);padding-left:25px}
+.timeline-item{position:relative;margin-bottom:30px}
+.timeline-item:before{
+  content:"";position:absolute;left:-33px;top:5px;
+  width:14px;height:14px;border-radius:50%;background:var(--purple)
+}
+.form-control,.form-select{
+  background:#111126!important;color:white!important;
+  border:1px solid #41415d!important;padding:12px
+}
+.form-control::placeholder{color:#9292a9}
+.form-control:focus{box-shadow:0 0 0 2px #a56aff44}
+a{color:#b995ff}
+footer{border-top:1px solid var(--border);padding:25px;text-align:center}
+.hidden{display:none!important}
+.page{min-height:100vh}
+.login-bg{
+  min-height:100vh;display:flex;justify-content:center;align-items:center;
+  padding:25px;background:radial-gradient(circle at top,#30205f,#0b0b18 65%)
+}
+.login-card{
+  width:100%;max-width:440px;background:#19192f;
+  border:1px solid #44405f;border-radius:20px;padding:35px
+}
+.dashboard{background:#0d0d1b;min-height:100vh;padding:25px}
+.stat-card{
+  background:#1b1b35;border:1px solid #373753;
+  border-radius:15px;padding:22px
+}
+.stat-card h2{color:#b48aff}
+.admin-section{background:#19192f;border:1px solid #363650;
+  border-radius:15px;padding:22px;margin-bottom:25px}
+.table-wrap{
+  max-height:440px;overflow:auto;border:1px solid #41415d;
+  border-radius:10px
+}
+.table{min-width:1050px;margin:0;color:white}
+.table th{
+  position:sticky;top:0;z-index:2;background:#30244e!important;
+  color:#d9c5ff!important;white-space:nowrap
+}
+.table td{background:#1b1b33!important;color:white!important;
+  border-color:#40405a!important;vertical-align:middle}
+.table input{min-width:130px}
+.small-note{font-size:12px;color:#aaa}
+.badge-skill{background:#30234c;color:#d9c4ff;padding:8px 12px;margin:4px;display:inline-block;border-radius:20px}
+.admin-nav button{margin:3px}
+
+/* FLOATING TYPING BADGE POPUP */
+.typing-popup-badge {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: linear-gradient(90deg, #a56aff, #4285ff);
+  color: white;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(165, 106, 255, 0.4);
+}
+.typing-popup-badge.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CUSTOM MODAL DIALOG POPUP */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(11, 11, 24, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.custom-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.custom-popup-card {
+  background: #17172c;
+  border: 1px solid var(--purple);
+  border-radius: 24px;
+  padding: 35px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(165, 106, 255, 0.35);
+  transform: scale(0.85);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.custom-modal-overlay.active .custom-popup-card {
+  transform: scale(1);
+}
+.popup-icon-wrap {
+  width: 70px; height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; color: white;
+  box-shadow: 0 0 20px rgba(165, 106, 255, 0.5);
+}
+
+@media(max-width:768px){
+  .hero{text-align:center;padding:65px 0}
+  .section{padding:60px 0}
+  .profile{width:210px;height:210px;margin-top:35px}
+  .dashboard{padding:12px}
+  .login-card{padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MAIN PORTFOLIO -->
+<div id="portfolioPage">
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<div class="container">
+<a class="navbar-brand" href="#home">Harika.dev</a>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navigation">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+<li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+<li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<section class="hero" id="home">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-7">
+<p class="gradient fw-bold">WELCOME TO MY PORTFOLIO</p>
+<h1 class="display-3 fw-bold">Hi, I'm <span class="gradient" id="heroName">K Harika</span></h1>
+<h2 class="mt-3">I'm a <span class="gradient" id="typing">Fullstack Developer Associate in Backend and Database Management</span></h2>
+<p class="fs-5 mt-4" id="heroIntro">
+Passionate Full Stack Developer specializing in crafting responsive frontends and robust backends using Java, React, SQL, and MongoDB. Dedicated to transforming real-world problems into clean, scalable, and high-performance digital solutions.
+</p>
+<a href="https://github.com/hari21-13" class="btn btn-main mt-3" target="_blank" rel="noopener">View My Projects</a>
+<a href="C:\Users\katta\OneDrive\Documents\Harika@Resume.pdf" download class="btn btn-outline-light mt-3 ms-2">Download Resume</a>
+</div>
+<div class="col-lg-5 text-center">
+<img id="profileImage" class="profile" src="C:\Users\katta\Pictures\Screenshots\alpha auron profile latest.png" alt="K Harika profile photo">
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="container">
+<h2 class="section-title">About <span class="gradient">Me</span></h2>
+<div class="custom-card">
+<h4>Who am I?</h4>
+<p id="aboutText">
+Enthusiastic Full Stack Developer skilled in building scalable, user-centric web applications using Java, SQL, React, MongoDB, HTML, CSS, and JavaScript. I leverage industry tools like VS Code, Eclipse, and GitHub to write clean, modular code and streamline development workflows from frontend design to backend architecture. Passionate about solving real-world challenges, I focus on turning complex logical problems into intuitive, efficient, and impactful digital solutions.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="skills">
+<div class="container">
+<h2 class="section-title">Technical <span class="gradient">Skills</span></h2>
+<div class="row g-4" id="publicSkills"></div>
+</div>
+</section>
+
+<section class="section" id="projects">
+<div class="container">
+<h2 class="section-title">My <span class="gradient">Projects</span></h2>
+<div class="row g-4" id="publicProjects"></div>
+</div>
+</section>
+
+<section class="section" id="education">
+<div class="container">
+<h2 class="section-title">My <span class="gradient">Education</span></h2>
+<div class="custom-card timeline">
+<div class="timeline-item">
+<h5>B.Tech - Computer Science and Engineering</h5>
+<p>Sreenivasa Institute of Technology and Management Studies</p>
+<p>August 2021 - July 2025 | CGPA: 8.37</p>
+</div>
+<div class="timeline-item">
+<h5>Intermediate - MPC</h5>
+<p>Sri Chaitanya Junior College</p>
+<p>May 2020 - June 2021 | 85.9%</p>
+</div>
+<div class="timeline-item">
+<h5>SSC</h5>
+<p>Camford English Medium High School</p>
+<p>May 2018 - March 2019 | GPA: 10/10</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SEPARATE CERTIFICATIONS SECTION -->
+<section class="section" id="certifications">
+<div class="container">
+<h2 class="section-title">Verified <span class="gradient">Certifications</span></h2>
+<div class="row g-4" id="publicCertificates"></div>
+</div>
+</section>
+
+<section class="section" id="experience">
+<div class="container">
+<h2 class="section-title">Work <span class="gradient">Experience</span></h2>
+<div class="custom-card mb-4">
+<h4>Full Stack Development Training</h4>
+<h6 class="gradient">Kodnest Training Center | March 2025 - July 2025</h6>
+<p>
+Completed 100+ hours of end-to-end full stack development training.
+Built 5+ responsive and interactive web interfaces, practised Java
+backend programming and worked with SQL and MongoDB databases.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<h2 class="section-title">Contact <span class="gradient">Me</span></h2>
+<div class="row justify-content-center">
+<div class="col-lg-7">
+<div class="custom-card">
+<span id="formTypingBadge" class="typing-popup-badge"><i class="fa-solid fa-pen-nib me-1"></i> Typing Message...</span>
+<p>Have an opportunity or a project in mind? Send me a message.</p>
+<form id="contactForm">
+<input id="contactName" class="form-control mb-3" placeholder="Your Name" required maxlength="100">
+<input id="contactEmail" type="email" class="form-control mb-3" placeholder="Your Email" required maxlength="150">
+<input id="contactSubject" class="form-control mb-3" placeholder="Subject" required maxlength="150">
+<textarea id="contactMessage" class="form-control mb-3" rows="5" placeholder="Your Message" required maxlength="3000"></textarea>
+<button class="btn btn-main w-100" type="submit">Send Message</button>
+<p id="contactStatus" class="mt-3"></p>
+</form>
+<hr>
+<p><i class="fa-solid fa-envelope"></i> harikabhargav11@gmail.com</p>
+<p><i class="fa-solid fa-phone"></i> 9000029580</p>
+<a href="https://www.linkedin.com/in/k-harika-0138" target="_blank" rel="noopener">LinkedIn</a> |
+<a href="https://github.com/hari21-13" target="_blank" rel="noopener">GitHub</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 K Harika | Personal Developer Portfolio</p>
+</footer>
+</div>
+
+<!-- ANCHOR TARGET FOR URL /admin-panel -->
+<div id="admin-panel"></div>
+<div id="admin"></div>
+
+<!-- ADMIN LOGIN -->
+<div id="loginPage" class="page hidden">
+<div class="login-bg">
+<div class="login-card">
+<div class="text-center mb-4">
+<i class="fa-solid fa-shield-halved fa-3x gradient"></i>
+<h2 class="mt-3">Admin Portal</h2>
+<p id="loginDescription">Enter your admin credentials</p>
+</div>
+
+<div id="setupBox" class="hidden">
+<h5>Setup / Reset Admin Credentials</h5>
+<p class="small-note">Choose a new admin username and password below.</p>
+<form id="setupForm">
+<label class="form-label small">New Username</label>
+<input id="newUsername" type="text" class="form-control mb-3" placeholder="e.g. Harika" required>
+<label class="form-label small">New Password</label>
+<input id="newPassword" type="password" class="form-control mb-3" placeholder="Create password (8+ characters)" minlength="8" required>
+<label class="form-label small">Confirm Password</label>
+<input id="confirmPassword" type="password" class="form-control mb-3" placeholder="Confirm password" minlength="8" required>
+<button class="btn btn-main w-100">Save New Credentials</button>
+</form>
+</div>
+
+<div id="loginBox">
+<form id="adminLoginForm">
+<label class="form-label">Username</label>
+<div class="input-group mb-3">
+<span class="input-group-text bg-dark border-secondary text-white"><i class="fa-solid fa-user"></i></span>
+<input type="text" id="adminUsername" class="form-control" placeholder="Enter username" value="Harika" required>
+</div>
+
+<label class="form-label">Password</label>
+<div class="input-group mb-3">
+<span class="input-group-text bg-dark border-secondary text-white"><i class="fa-solid fa-key"></i></span>
+<input type="password" id="adminPassword" class="form-control" placeholder="Enter password" value="Hari@2003" required>
+<button type="button" class="btn btn-outline-light" onclick="togglePassword()"><i class="fa-solid fa-eye" id="eyeIcon"></i></button>
+</div>
+<button class="btn btn-main w-100">Login to Dashboard</button>
+</form>
+
+<div class="text-center mt-3 pt-2 border-top border-secondary">
+  <button type="button" class="btn btn-sm text-info text-decoration-none fw-bold" onclick="resetCredentialsPrompt()">
+    <i class="fa-solid fa-unlock-keyhole me-1"></i> Forgot Password / Reset Credentials
+  </button>
+</div>
+</div>
+
+<p id="loginMessage" class="text-danger mt-3 text-center"></p>
+<button class="btn btn-outline-light w-100 mt-2" onclick="backToPortfolio()">
+<i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+</button>
+</div>
+</div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="dashboardPage" class="dashboard hidden">
+<div class="container-fluid">
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+<div>
+<h2><i class="fa-solid fa-gauge-high gradient"></i> Admin Dashboard</h2>
+<p>Welcome back, <span id="currentAdminName" class="gradient fw-bold">Admin</span></p>
+</div>
+<div class="admin-nav">
+<button class="btn btn-outline-light" onclick="backToPortfolio()"><i class="fa-solid fa-arrow-left"></i> Back to Site</button>
+<button class="btn btn-danger" onclick="logout()">Logout</button>
+</div>
+</div>
+
+<div class="row g-3 mb-4">
+<div class="col-md-3"><div class="stat-card"><p>Total Messages</p><h2 id="totalMessages">0</h2></div></div>
+<div class="col-md-3"><div class="stat-card"><p>Today's Messages</p><h2 id="todayMessages">0</h2></div></div>
+<div class="col-md-3"><div class="stat-card"><p>Projects</p><h2 id="projectCount">0</h2></div></div>
+<div class="col-md-3"><div class="stat-card"><p>Certifications</p><h2 id="certCount">0</h2></div></div>
+</div>
+
+<!-- DASHBOARD MENU -->
+<div class="admin-section">
+<h5>Management Menu</h5>
+<div class="admin-nav d-flex flex-wrap gap-2">
+<button class="btn btn-main" onclick="adminTab('records')">Visitor / Contact Records</button>
+<button class="btn btn-outline-light" onclick="adminTab('profile')">Edit Profile & Photo</button>
+<button class="btn btn-outline-light" onclick="adminTab('skills')">Manage Skills</button>
+<button class="btn btn-outline-light" onclick="adminTab('projects')">Manage Projects</button>
+<button class="btn btn-outline-light" onclick="adminTab('certificates')">Manage Certifications</button>
+</div>
+</div>
+
+<!-- RECORDS -->
+<div id="recordsTab" class="admin-section">
+<div class="d-flex justify-content-between flex-wrap gap-2">
+<h4><i class="fa-solid fa-table"></i> Contact & Visitor Records</h4>
+<div>
+<button class="btn btn-success btn-sm" onclick="exportCSV()">Export CSV</button>
+<button class="btn btn-primary btn-sm" onclick="exportExcel()">Export Excel</button>
+</div>
+</div>
+<p class="small-note mt-2">Records created from portfolio contact submissions.</p>
+
+<div class="row g-2 my-3">
+<div class="col-md-5"><input id="recordSearch" class="form-control" placeholder="Search name, email, visitor ID..." oninput="renderRecords()"></div>
+<div class="col-md-3"><input type="date" id="recordDate" class="form-control" onchange="renderRecords()"></div>
+<div class="col-md-2">
+<select id="recordSort" class="form-select" onchange="renderRecords()">
+<option value="new">Newest first</option>
+<option value="old">Oldest first</option>
+</select>
+</div>
+<div class="col-md-2"><button class="btn btn-outline-light w-100" onclick="clearRecordFilters()">Clear</button></div>
+</div>
+
+<div class="table-wrap">
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>S.No</th><th>Visitor ID</th><th>Name</th><th>Date</th><th>Time</th>
+<th>Email</th><th>Subject</th><th>Message</th><th>Action</th>
+</tr>
+</thead>
+<tbody id="recordTable"></tbody>
+</table>
+</div>
+</div>
+
+<!-- EDIT PROFILE -->
+<div id="profileTab" class="admin-section hidden">
+<h4>Edit Profile & Photo</h4>
+<form id="profileForm">
+<label class="mt-2">Your Name</label>
+<input id="editName" class="form-control mb-3" required>
+<label>Professional Title</label>
+<input id="editTitle" class="form-control mb-3" required>
+<label>Introduction</label>
+<textarea id="editIntro" class="form-control mb-3" rows="4"></textarea>
+<label>About Me</label>
+<textarea id="editAbout" class="form-control mb-3" rows="5"></textarea>
+<label>Profile Image Direct Link / Filename</label>
+<input id="editPhotoUrl" class="form-control mb-3" placeholder="e.g. photo.jpg or https://...">
+<label>Or Choose Profile Photo File Directly</label>
+<input id="photoUpload" type="file" accept="image/*" class="form-control mb-3">
+<button class="btn btn-main">Save Profile & Photo Changes</button>
+</form>
+</div>
+
+<!-- MANAGE SKILLS -->
+<div id="skillsTab" class="admin-section hidden">
+<h4>Manage Skills</h4>
+<form id="skillForm" class="row g-2 mb-4">
+<div class="col-md-6"><input id="skillName" class="form-control" placeholder="Skill name" required></div>
+<div class="col-md-3"><input id="skillLevel" type="number" min="1" max="100" class="form-control" placeholder="Percentage" required></div>
+<div class="col-md-3"><button class="btn btn-main w-100">Add Skill</button></div>
+</form>
+<div id="adminSkills"></div>
+</div>
+
+<!-- MANAGE PROJECTS -->
+<div id="projectsTab" class="admin-section hidden">
+<h4>Manage Projects</h4>
+<form id="projectForm">
+<input id="projectName" class="form-control mb-2" placeholder="Project title" required>
+<textarea id="projectDescription" class="form-control mb-2" placeholder="Project description" required></textarea>
+<input id="projectTech" class="form-control mb-2" placeholder="Technologies (comma separated)">
+<input id="projectLink" type="url" class="form-control mb-2" placeholder="GitHub / Live demo URL (optional)">
+<button class="btn btn-main">Add Project</button>
+</form>
+<hr>
+<div id="adminProjects"></div>
+</div>
+
+<!-- MANAGE CERTIFICATIONS -->
+<div id="certificatesTab" class="admin-section hidden">
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h4 class="mb-0">Manage Certifications</h4>
+  <button class="btn btn-warning btn-sm" onclick="resetCertificatesToCleanDefaults()">
+    <i class="fa-solid fa-rotate-left"></i> Fix & Clean All Paths
+  </button>
+</div>
+
+<form id="certForm" class="mb-4">
+<div class="row g-2">
+<div class="col-md-6"><input id="certTitle" class="form-control" placeholder="Certificate Title (e.g., SQL)" required></div>
+<div class="col-md-6"><input id="certIssuer" class="form-control" placeholder="Issuing Organization (e.g., IBM)" required></div>
+<div class="col-md-6"><input id="certDate" class="form-control" placeholder="Date / Year (e.g., 20/5/2022)"></div>
+<div class="col-md-6"><input id="certLink" class="form-control" placeholder="Filename or URL (e.g., sql ibm.jpeg or cert.pdf)"></div>
+<div class="col-12">
+  <label class="form-label small text-info"><i class="fa-solid fa-cloud-arrow-up"></i> Or Choose Image / PDF File Directly (Recommended):</label>
+  <input id="certFileInput" type="file" accept="image/*,.pdf" class="form-control">
+</div>
+<div class="col-12"><textarea id="certDesc" class="form-control" rows="3" placeholder="Description of topics and skills covered..." required></textarea></div>
+<div class="col-12"><button class="btn btn-main">Add / Save Certificate</button></div>
+</div>
+</form>
+<hr>
+<div id="adminCertificates"></div>
+</div>
+
+<p class="small-note">Local preview: records and edits are stored in this browser only.</p>
+</div>
+</div>
+
+<!-- ELEGANT POPUP MODAL DIALOG -->
+<div id="customPopupModal" class="custom-modal-overlay">
+  <div class="custom-popup-card">
+    <div class="popup-icon-wrap">
+      <i class="fa-solid fa-paper-plane"></i>
+    </div>
+    <h3 class="fw-bold mb-2 text-white" id="popupModalTitle">Message Sent!</h3>
+    <p id="popupModalBody" class="fs-6 mb-4">Thank you for reaching out! Your submission has been securely delivered and logged in the panel.</p>
+    <button class="btn btn-main w-100" onclick="closeCustomPopup()">Continue</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ---------------- STORAGE ----------------
+const getData=(key,fallback)=> {
+  try{return JSON.parse(localStorage.getItem(key)) ?? fallback}
+  catch{return fallback}
+};
+const saveData=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
+
+function safe(str) {
+  if(!str) return '';
+  return String(str).replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>').replace(/"/g, '"');
+}
+
+function sanitizePath(pathStr) {
+  if(!pathStr) return '';
+  return pathStr.trim().replace(/^["']|["']$/g, '').replace(/\\/g, '/');
+}
+
+// Default Certificate List
+const cleanCertificatesList = [
+  {
+    title: 'SQL',
+    issuer: 'IBM',
+    date: '20/5/2022',
+    desc: 'SQL Course with Verified IBM. In this course, I have been writing clean, neat, and efficient queries using SQL for managing and manipulating data from databases, with quick accessing, retrieval, and updating.',
+    media: 'sql ibm.jpeg'
+  },
+  {
+    title: 'Fullstack Java',
+    issuer: 'Kodnest Institute Bangalore',
+    date: '18/3/2025',
+    desc: 'Fullstack Java course at Kodnest Institute where I learned to write simple and efficient code with solid logic, alongside writing clean SQL queries to manage and process backend databases.',
+    media: 'konestcertificate.png'
+  },
+  {
+    title: 'Web Technology',
+    issuer: 'Codtech IT Solutions Pvt Ltd',
+    date: '13/05/2024',
+    desc: 'Learned and developed interactive applications using core frontend technologies including HTML, CSS, and JavaScript during this internship program.',
+    media: 'web technology codtech it solutions.jpeg'
+  },
+  {
+    title: 'AI & ML',
+    issuer: 'Internpe',
+    date: '2/09/2022',
+    desc: 'Explored core concepts of AI & ML, gaining insights into building intelligent algorithms and using modern frameworks to increase workflow productivity.',
+    media: 'aiml internpe.jpeg'
+  },
+  {
+    title: 'Java Development',
+    issuer: 'ExcelR',
+    date: '2025',
+    desc: 'Understood the fundamental design patterns of backend application architecture, focusing on Java OOPs principles and server data handling.',
+    media: 'Excelr java.jpeg'
+  }
+];
+
+let savedCerts = getData('harikaCertificates_v4', cleanCertificatesList);
+let certificates = savedCerts.map(c => ({
+  ...c,
+  media: sanitizePath(c.media)
+}));
+saveData('harikaCertificates_v4', certificates);
+
+const initialHtmlPhoto = document.getElementById('profileImage') ? document.getElementById('profileImage').getAttribute('src') : '';
+let profile = getData('harikaProfile_v4', {
+  name: 'K Harika',
+  title: 'Fullstack Developer Associate in Backend and Database Management',
+  intro: 'Passionate Full Stack Developer specializing in crafting responsive frontends and robust backends using Java, React, SQL, and MongoDB. Dedicated to transforming real-world problems into clean, scalable, and high-performance digital solutions.',
+  about: 'Enthusiastic Full Stack Developer skilled in building scalable, user-centric web applications using Java, SQL, React, MongoDB, HTML, CSS, and JavaScript. I leverage industry tools like VS Code, Eclipse, and GitHub to write clean, modular code and streamline development workflows from frontend design to backend architecture. Passionate about solving real-world challenges, I focus on turning complex logical problems into intuitive, efficient, and impactful digital solutions.',
+  photo: initialHtmlPhoto || 'C:\\Users\\katta\\Pictures\\Screenshots\\alpha auron profile latest.png'
+});
+
+let skills = getData('harikaSkills', [
+  {name:'HTML',level:97},{name:'CSS',level:92},
+  {name:'JavaScript',level:89},{name:'ReactJS',level:85},
+  {name:'Java',level:95},{name:'SQL',level:96},
+  {name:'MongoDB',level:94},{name:'GitHub',level:93}
+]);
+
+let projects = getData('harikaProjects', [
+   {
+    name: 'To-Do List Web Application',
+    description: 'Developed an interactive and responsive To-Do List web application using HTML5, CSS3, and JavaScript featuring dynamic task management, state tracking, and local data persistence. Engineered an intuitive, mobile-friendly interface designed to boost daily productivity through clean layout architecture and efficient DOM manipulation.',
+    tech: 'HTML, CSS, JavaScript',
+    link: 'https://github.com/hari21-13/TodolistApp-Task1'
+  },
+   {
+    name: 'Weather Forecast Application',
+    description: 'An interactive Weather Forecast Application built using HTML, CSS, and JavaScript that delivers real-time weather updates and forecasts via OpenWeatherMap API integration. It features responsive UI design, dynamic city-based search, and smooth asynchronous data rendering to provide users with an intuitive forecasting experience.',
+    tech: 'HTML, CSS, JavaScript',
+    link: 'https://github.com/hari21-13/WeatherforecastApp-Task2'
+  },
+   {
+    name: 'Simple Blogging Platform',
+    description: 'Developed a responsive, interactive blogging platform utilizing HTML5, CSS3, and JavaScript with modern, user-friendly UI layouts. Implemented client-side logic for dynamic post creation, content filtering, and seamless reading experiences across multiple device breakpoints.',
+    tech: 'HTML, CSS, JavaScript',
+    link: 'https://github.com/hari21-13/SimpleBlog-Task3'
+  }
+]);
+
+let records = getData('harikaRecords', []);
+
+function resetCertificatesToCleanDefaults(){
+  if(confirm("Clean and reset certificates to correct filenames?")){
+    certificates = cleanCertificatesList;
+    saveData('harikaCertificates_v4', certificates);
+    renderCertificates();
+    alert("Certificates reset with clean file paths!");
+  }
+}
+
+// ---------------- URL & HASH ROUTING ----------------
+let currentMode = 'portfolio';
+
+function normalizeHash(str){
+  return decodeURIComponent(str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function checkUrlAndRoute(){
+  const clean = normalizeHash(window.location.hash);
+  const cleanPath = normalizeHash(window.location.pathname);
+  const isAdminRequested = clean.includes('admin') || cleanPath.includes('admin');
+
+  if(isAdminRequested){
+    if(currentMode !== 'admin'){
+      currentMode = 'admin';
+      if(sessionStorage.getItem('harikaAdmin') === 'yes'){
+        showOnly('dashboardPage');
+        loadDashboard();
+      } else {
+        showOnly('loginPage');
+        checkAdminSetup();
+      }
+    }
+  } else {
+    if(currentMode !== 'portfolio'){
+      currentMode = 'portfolio';
+      showOnly('portfolioPage');
+    }
+  }
+}
+
+window.addEventListener('hashchange', checkUrlAndRoute);
+window.addEventListener('popstate', checkUrlAndRoute);
+window.addEventListener('DOMContentLoaded', checkUrlAndRoute);
+
+function showOnly(id){
+  ['portfolioPage','loginPage','dashboardPage'].forEach(x=> {
+    const el = document.getElementById(x);
+    if(el) el.classList.toggle('hidden', x !== id);
+  });
+  window.scrollTo(0,0);
+}
+
+function backToPortfolio(){
+  window.location.hash = 'home';
+  currentMode = 'portfolio';
+  showOnly('portfolioPage');
+}
+
+function logout(){
+  sessionStorage.removeItem('harikaAdmin');
+  sessionStorage.removeItem('harikaActiveUser');
+  window.location.hash = 'admin-panel';
+  currentMode = '';
+  checkUrlAndRoute();
+}
+
+// ---------------- ADMIN AUTHENTICATION ----------------
+async function hashPassword(password){
+  const data = new TextEncoder().encode(password);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+function checkAdminSetup(){
+  const exists = localStorage.getItem('harikaAdminHash');
+  document.getElementById('setupBox').classList.toggle('hidden', !!exists);
+  document.getElementById('loginBox').classList.toggle('hidden', !exists);
+  document.getElementById('loginDescription').textContent =
+    exists ? 'Enter your admin credentials' : 'Create your administrator username & password';
+  document.getElementById('loginMessage').textContent = '';
+}
+
+function resetCredentialsPrompt(){
+  if(confirm("Do you want to reset your credentials? Click OK to set a new username and password.")){
+    localStorage.removeItem('harikaAdminHash');
+    localStorage.removeItem('harikaAdminUsername');
+    checkAdminSetup();
+  }
+}
+
+document.getElementById('setupForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const u = document.getElementById('newUsername').value.trim();
+  const p = document.getElementById('newPassword').value;
+  const c = document.getElementById('confirmPassword').value;
+  if(!u){alert('Username is required');return}
+  if(p.length < 8){alert('Password must contain at least 8 characters');return}
+  if(p !== c){alert('Passwords do not match');return}
+
+  try {
+    const hashed = crypto.subtle ? await hashPassword(p) : btoa(p);
+    localStorage.setItem('harikaAdminUsername', u);
+    localStorage.setItem('harikaAdminHash', hashed);
+  } catch(err) {
+    localStorage.setItem('harikaAdminUsername', u);
+    localStorage.setItem('harikaAdminHash', btoa(p));
+  }
+  
+  e.target.reset();
+  checkAdminSetup();
+  document.getElementById('loginMessage').className = 'text-success mt-3 text-center';
+  document.getElementById('loginMessage').textContent = 'Credentials successfully updated! You can now log in.';
+});
+
+document.getElementById('adminLoginForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const enteredUser = document.getElementById('adminUsername').value.trim();
+  const enteredPass = document.getElementById('adminPassword').value;
+  
+  let isAuthenticated = false;
+  if(enteredUser.toLowerCase() === 'harika' && enteredPass === 'Hari@2003'){
+    isAuthenticated = true;
+  } else {
+    const savedUser = localStorage.getItem('harikaAdminUsername');
+    const savedHash = localStorage.getItem('harikaAdminHash');
+    if(savedHash && savedUser && enteredUser.toLowerCase() === savedUser.toLowerCase()){
+      try {
+        const passHash = crypto.subtle ? await hashPassword(enteredPass) : btoa(enteredPass);
+        if(passHash === savedHash || btoa(enteredPass) === savedHash){
+          isAuthenticated = true;
+        }
+      } catch(err) {
+        if(btoa(enteredPass) === savedHash) isAuthenticated = true;
+      }
+    }
+  }
+
+  if(isAuthenticated){
+    sessionStorage.setItem('harikaAdmin', 'yes');
+    sessionStorage.setItem('harikaActiveUser', enteredUser);
+    document.getElementById('loginMessage').textContent = '';
+    e.target.reset();
+    showOnly('dashboardPage');
+    loadDashboard();
+  } else {
+    document.getElementById('loginMessage').className = 'text-danger mt-3 text-center';
+    document.getElementById('loginMessage').textContent = 'Incorrect username or password. Please try again.';
+  }
+});
+
+function togglePassword(){
+  const p = document.getElementById('adminPassword');
+  p.type = p.type === 'password' ? 'text' : 'password';
+  document.getElementById('eyeIcon').classList.toggle('fa-eye');
+  document.getElementById('eyeIcon').classList.toggle('fa-eye-slash');
+}
+
+// ---------------- PUBLIC RENDERING ----------------
+function renderProfile(){
+  document.getElementById('heroName').textContent = profile.name;
+  document.getElementById('heroIntro').textContent = profile.intro;
+  document.getElementById('typing').textContent = profile.title;
+  document.getElementById('aboutText').textContent = profile.about;
+  
+  const imgEl = document.getElementById('profileImage');
+  if(imgEl && profile.photo){
+    imgEl.src = sanitizePath(profile.photo);
+  }
+}
+
+function renderSkills(){
+  document.getElementById('publicSkills').innerHTML = skills.map(s=>`
+    <div class="col-md-6">
+      <div class="custom-card">
+        <div class="d-flex justify-content-between mb-2"><b>${safe(s.name)}</b><span>${s.level}%</span></div>
+        <div class="progress"><div class="progress-bar" style="width:${Number(s.level)}%"></div></div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('adminSkills').innerHTML = skills.map((s,i)=>`
+    <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+      <span><b>${safe(s.name)}</b> - ${s.level}%</span>
+      <button class="btn btn-danger btn-sm" onclick="deleteSkill(${i})">Delete</button>
+    </div>`).join('');
+}
+
+function renderProjects(){
+  document.getElementById('publicProjects').innerHTML = projects.map(p=>`
+    <div class="col-md-4">
+      <div class="custom-card">
+        <h4>${safe(p.name)}</h4>
+        <p>${safe(p.description)}</p>
+        ${p.tech ? `<p class="small text-info mb-2"><b>Tech:</b> ${safe(p.tech)}</p>` : ''}
+        ${p.link ? `<a href="${safe(p.link)}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light mt-auto"><i class="fa-brands fa-github me-1"></i> View Project</a>` : ''}
+      </div>
+    </div>`).join('');
+
+  document.getElementById('adminProjects').innerHTML = projects.map((p,i)=>`
+    <div class="border-bottom py-3">
+      <h5>${safe(p.name)}</h5>
+      <p class="mb-1">${safe(p.description)}</p>
+      <button class="btn btn-danger btn-sm mt-2" onclick="deleteProject(${i})">Delete Project</button>
+    </div>`).join('');
+}
+
+function renderCertificates(){
+  const certContainer = document.getElementById('publicCertificates');
+  const adminCertContainer = document.getElementById('adminCertificates');
+
+  certContainer.innerHTML = certificates.map((c, i)=>{
+    const fileSrc = sanitizePath(c.media);
+    const isPdf = fileSrc.toLowerCase().endsWith('.pdf') || fileSrc.startsWith('data:application/pdf');
+    
+    let mediaMarkup = '';
+    if(isPdf){
+      mediaMarkup = `
+        <div class="cert-media-box">
+          <embed src="${safe(fileSrc)}" type="application/pdf" class="cert-pdf-element" />
+        </div>`;
+    } else {
+      mediaMarkup = `
+        <div class="cert-media-box">
+          <img src="${safe(fileSrc)}" class="cert-img-element" alt="${safe(c.title)}" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x220?text=Certificate+Preview';">
+        </div>`;
+    }
+
+    return `
+    <div class="col-md-4">
+      <div class="custom-card">
+        ${mediaMarkup}
+        <h5 class="fw-bold text-white mb-1">${safe(c.title)}</h5>
+        <h6 class="gradient mb-2">${safe(c.issuer)} ${c.date ? `| ${safe(c.date)}` : ''}</h6>
+        <p class="small text-muted flex-grow-1">${safe(c.desc)}</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="${safe(fileSrc)}" target="_blank" download class="btn btn-sm btn-main w-100">
+            <i class="fa-solid fa-download me-1"></i> Download / View
+          </a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  adminCertContainer.innerHTML = certificates.map((c,i)=>`
+    <div class="d-flex flex-wrap justify-content-between align-items-center border-bottom py-2 gap-2">
+      <div>
+        <b class="text-info">${safe(c.title)}</b> - ${safe(c.issuer)} (${safe(c.date || 'N/A')})
+        <br><small class="text-muted">${safe(c.media)}</small>
+      </div>
+      <button class="btn btn-danger btn-sm" onclick="deleteCertificate(${i})">Delete</button>
+    </div>`).join('');
+}
+
+// ---------------- POPUP MODAL & FLOATING BADGE LOGIC ----------------
+function showCustomPopup(title, bodyText) {
+  document.getElementById('popupModalTitle').textContent = title;
+  document.getElementById('popupModalBody').textContent = bodyText;
+  document.getElementById('customPopupModal').classList.add('active');
+}
+
+function closeCustomPopup() {
+  document.getElementById('customPopupModal').classList.remove('active');
+}
+
+// Dynamic Floating Typing Popup Badge on Form Inputs
+const contactInputs = ['contactName', 'contactEmail', 'contactSubject', 'contactMessage'];
+contactInputs.forEach(id => {
+  const el = document.getElementById(id);
+  if(el) {
+    el.addEventListener('input', () => {
+      const hasText = contactInputs.some(i => (document.getElementById(i)?.value || '').trim().length > 0);
+      const badge = document.getElementById('formTypingBadge');
+      if(badge) {
+        if(hasText) {
+          badge.classList.add('visible');
+        } else {
+          badge.classList.remove('visible');
+        }
+      }
+    });
+  }
+});
+
+// ---------------- CONTACT FORM ----------------
+function makeId(){
+  return 'HK-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2,7).toUpperCase();
+}
+
+document.getElementById('contactForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const nameVal = document.getElementById('contactName').value.trim();
+  const record = {
+    id: makeId(),
+    name: nameVal,
+    email: document.getElementById('contactEmail').value.trim(),
+    subject: document.getElementById('contactSubject').value.trim(),
+    message: document.getElementById('contactMessage').value.trim(),
+    date: new Date().toLocaleDateString(),
+    time: new Date().toLocaleTimeString()
+  };
+  
+  records.unshift(record);
+  saveData('harikaRecords', records);
+  e.target.reset();
+  
+  // Hide typing badge
+  const badge = document.getElementById('formTypingBadge');
+  if(badge) badge.classList.remove('visible');
+  
+  document.getElementById('contactStatus').className = 'text-success mt-3';
+  document.getElementById('contactStatus').textContent = 'Your message has been sent successfully!';
+  
+  // Trigger Pop-up Modal
+  showCustomPopup(
+    `Thank You, ${nameVal}!`,
+    `Your message has been received successfully and logged in the admin panel with Visitor ID: ${record.id}.`
+  );
+  
+  if(currentMode === 'admin') loadDashboard();
+});
+
+// ---------------- ADMIN MANAGEMENT ----------------
+function loadDashboard(){
+  const activeUser = sessionStorage.getItem('harikaActiveUser') || localStorage.getItem('harikaAdminUsername') || 'Harika';
+  document.getElementById('currentAdminName').textContent = activeUser;
+  
+  document.getElementById('totalMessages').textContent = records.length;
+  document.getElementById('todayMessages').textContent = records.filter(r=>r.date === new Date().toLocaleDateString()).length;
+  document.getElementById('projectCount').textContent = projects.length;
+  document.getElementById('certCount').textContent = certificates.length;
+  
+  // Fill edit profile values
+  document.getElementById('editName').value = profile.name;
+  document.getElementById('editTitle').value = profile.title;
+  document.getElementById('editIntro').value = profile.intro;
+  document.getElementById('editAbout').value = profile.about;
+  document.getElementById('editPhotoUrl').value = profile.photo;
+  
+  renderRecords();
+  renderSkills();
+  renderProjects();
+  renderCertificates();
+}
+
+function adminTab(tab){
+  ['recordsTab','profileTab','skillsTab','projectsTab','certificatesTab'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.classList.add('hidden');
+  });
+  document.getElementById(tab + 'Tab').classList.remove('hidden');
+}
+
+function renderRecords(){
+  const search = document.getElementById('recordSearch').value.toLowerCase();
+  const dateVal = document.getElementById('recordDate').value;
+  const sort = document.getElementById('recordSort').value;
+
+  let list = [...records];
+  if(search){
+    list = list.filter(r=>
+      r.name.toLowerCase().includes(search) ||
+      r.email.toLowerCase().includes(search) ||
+      r.id.toLowerCase().includes(search)
+    );
+  }
+  if(dateVal){
+    const dStr = new Date(dateVal).toLocaleDateString();
+    list = list.filter(r=>r.date === dStr);
+  }
+  if(sort === 'old') list.reverse();
+
+  document.getElementById('recordTable').innerHTML = list.map((r,i)=>`
+    <tr>
+      <td>${i+1}</td>
+      <td>${safe(r.id)}</td>
+      <td>${safe(r.name)}</td>
+      <td>${safe(r.date)}</td>
+      <td>${safe(r.time)}</td>
+      <td><a href="mailto:${safe(r.email)}">${safe(r.email)}</a></td>
+      <td>${safe(r.subject)}</td>
+      <td>${safe(r.message)}</td>
+      <td><button class="btn btn-danger btn-sm" onclick="deleteRecord('${r.id}')">Delete</button></td>
+    </tr>`).join('');
+}
+
+function deleteRecord(id){
+  records = records.filter(r=>r.id !== id);
+  saveData('harikaRecords', records);
+  loadDashboard();
+}
+
+function clearRecordFilters(){
+  document.getElementById('recordSearch').value = '';
+  document.getElementById('recordDate').value = '';
+  renderRecords();
+}
+
+function exportCSV(){
+  let csv = 'S.No,Visitor ID,Name,Date,Time,Email,Subject,Message\n';
+  records.forEach((r,i)=>{
+    csv += `"${i+1}","${r.id}","${r.name}","${r.date}","${r.time}","${r.email}","${r.subject}","${r.message.replace(/"/g,'""')}"\n`;
+  });
+  const blob = new Blob([csv],{type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'contact_records.csv';
+  a.click();
+}
+
+function exportExcel(){
+  exportCSV();
+}
+
+// PROFILE ACTIONS
+document.getElementById('profileForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  profile.name = document.getElementById('editName').value;
+  profile.title = document.getElementById('editTitle').value;
+  profile.intro = document.getElementById('editIntro').value;
+  profile.about = document.getElementById('editAbout').value;
+  
+  const photoInput = document.getElementById('photoUpload');
+  if(photoInput.files && photoInput.files[0]){
+    const reader = new FileReader();
+    reader.onload = function(evt){
+      profile.photo = evt.target.result;
+      saveData('harikaProfile_v4', profile);
+      renderProfile();
+      showCustomPopup('Profile Updated!', 'Your profile details and photo changes have been saved successfully.');
+    };
+    reader.readAsDataURL(photoInput.files[0]);
+  } else {
+    profile.photo = sanitizePath(document.getElementById('editPhotoUrl').value);
+    saveData('harikaProfile_v4', profile);
+    renderProfile();
+    showCustomPopup('Profile Updated!', 'Your profile details and photo changes have been saved successfully.');
+  }
+});
+
+// SKILL ACTIONS
+document.getElementById('skillForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const name = document.getElementById('skillName').value.trim();
+  const level = Number(document.getElementById('skillLevel').value);
+  skills.push({name, level});
+  saveData('harikaSkills', skills);
+  e.target.reset();
+  renderSkills();
+  showCustomPopup('Skill Added!', 'New skill entry was successfully created.');
+});
+
+function deleteSkill(index){
+  skills.splice(index,1);
+  saveData('harikaSkills', skills);
+  renderSkills();
+}
+
+// PROJECT ACTIONS
+document.getElementById('projectForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const name = document.getElementById('projectName').value.trim();
+  const description = document.getElementById('projectDescription').value.trim();
+  const tech = document.getElementById('projectTech').value.trim();
+  const link = document.getElementById('projectLink').value.trim();
+  projects.push({name, description, tech, link});
+  saveData('harikaProjects', projects);
+  e.target.reset();
+  renderProjects();
+  showCustomPopup('Project Added!', 'Your new project entry is now published.');
+});
+
+function deleteProject(index){
+  projects.splice(index,1);
+  saveData('harikaProjects', projects);
+  renderProjects();
+}
+
+// CERTIFICATE ACTIONS
+document.getElementById('certForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const title = document.getElementById('certTitle').value.trim();
+  const issuer = document.getElementById('certIssuer').value.trim();
+  const date = document.getElementById('certDate').value.trim();
+  const desc = document.getElementById('certDesc').value.trim();
+  const linkInput = sanitizePath(document.getElementById('certLink').value);
+  const fileInput = document.getElementById('certFileInput');
+
+  if(fileInput.files && fileInput.files[0]){
+    const reader = new FileReader();
+    reader.onload = function(evt){
+      certificates.push({
+        title, issuer, date, desc,
+        media: evt.target.result
+      });
+      saveData('harikaCertificates_v4', certificates);
+      renderCertificates();
+      e.target.reset();
+      showCustomPopup('Certificate Saved!', 'New certification record saved successfully.');
+    };
+    reader.readAsDataURL(fileInput.files[0]);
+  } else {
+    certificates.push({
+      title, issuer, date, desc,
+      media: linkInput || 'https://via.placeholder.com/400x220?text=Certificate'
+    });
+    saveData('harikaCertificates_v4', certificates);
+    renderCertificates();
+    e.target.reset();
+    showCustomPopup('Certificate Saved!', 'New certification record saved successfully.');
+  }
+});
+
+function deleteCertificate(index){
+  certificates.splice(index,1);
+  saveData('harikaCertificates_v4', certificates);
+  renderCertificates();
+}
+
+// INITIAL RENDER
+renderProfile();
+renderSkills();
+renderProjects();
+renderCertificates();
+</script>
+</body>
+</html>
